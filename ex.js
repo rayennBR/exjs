@@ -1,31 +1,33 @@
-var Test =0 ; 
-var start=confirm("start ");
-function comp(min,max)
+var start=false; 
+do 
 {
-	return min+Math.floor(Math.random()*(max-min+1));
-}
-var nbrran=comp(0,10);
-do{
-var nombre=prompt("Select a nmbr between 0 and 10 ");
-console.log(" the nmbr is : "+nombre); 
+var start=confirm("would you like to start?");
+game();
+}while (game);
 
-if (nombre > nbrran)
+function game (nbr=3)
 {
-   alert("too big ");
-   Test++ ;
-}
-if (nombre < nbrran)
-{
-    alert("too small");
-    Test++ ;
-} 
-if (nombre == nbrran) 
-{
-    alert("Congrats you've found the nmbr");
-    break;
-}
-}while (Test < 3);
+    var nbrran=Math.floor((Math.random()*10)+1),nombre;
+    console.log(" the nmbr is : "+nbrran); 
 
-if (Test == 3)
-{ console.log("Better luck next time " + nbralea); 
-var on=confirm("restart ?") }
+    var nbfoix =0;
+    trouve = false;
+
+    while (nbfoix != nbr && !trouve  )
+        { 
+        nbfoix++;
+
+        nombre=prompt("Select a nmbr between 0 and 10 ");
+            if (nombre == nbrran)
+                trouve= true;
+
+            else if (nombre > nbrran)
+                {alert("too big ");}
+            else
+                {alert("too small ");} 
+                if (trouve==true)
+                {alert("Congrats you've found the nmbr"+nbfoix);}
+                else
+                {alert("fail attempts :"+nbfoix);}
+        }
+}
